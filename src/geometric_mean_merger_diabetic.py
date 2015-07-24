@@ -3,33 +3,43 @@ __author__ = 'Vladimir Iglovikov'
 '''
 This scripts merges several csv files that are used to perform Kaggle submission
 
-It performs average
+It performs geometric average regression
+Right now it works for diabetic competition
 '''
 
 import os
 import sys
 import pandas as pd
 import time
+import math
 
 files = sys.argv[1:]
 try:
-  files.remove('mean_merger_taxi.py')
+  files.remove('geometric_mean_merger_diabetic.py')
 except:
   pass
 
 
 data = [pd.read_csv(fName) for fName in files]
-ids = data[0]['TRIP_ID']
+ids = data[0]['image']
 
 result  = pd.DataFrame()
 submission = pd.DataFrame()
 
 ind = 0
-for df in data:
-  result[ind] = df['TRAVEL_TIME']
-  ind += 1
 
-submission['TRAVEL_TIME'] = result.mean(axis=1)
-submission['TRIP_ID'] = ids
+submission['image'] = ids
+
+submission['level'] = 1
+
+for df in data:
+  submission['level'] = submission['level'] * df['level']
+  
+power = 1.0 / len(data)
+
+submission['level'] = submission['level'].apply(lambda x: round(math.pow(x, power))).astype(int)
+
+
+submission['image'] = ids
 
 submission.to_csv('{timestamp}.csv'.format(timestamp=time.time()), index=False)
