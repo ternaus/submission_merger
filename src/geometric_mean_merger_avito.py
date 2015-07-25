@@ -37,7 +37,7 @@ for df in data:
   
 power = 1.0 / len(data)
 
-submission['IsClick'] = submission['IsClick'].apply(lambda x: round(math.pow(x, power))).astype(int)
+submission['IsClick'] = submission['IsClick'].apply(lambda x: math.pow(x, power))
 
 
 submission['ID'] = ids

@@ -37,7 +37,7 @@ for df in data:
   
 power = 1.0 / len(data)
 
-submission['level'] = submission['level'].apply(lambda x: math.pow(x, power))
+submission['level'] = submission['level'].apply(lambda x: round(math.pow(x, power))).astype(int)
 
 
 submission['image'] = ids
