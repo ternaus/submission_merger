@@ -10,10 +10,11 @@ import os
 import sys
 import pandas as pd
 import time
+import math
 
 files = sys.argv[1:]
 try:
-  files.remove('mean_merger_liberty.py')
+  files.remove('euclidean_merger_liberty.py')
 except:
   pass
 
@@ -25,7 +26,7 @@ submission = pd.DataFrame()
 
 ind = 0
 for df in data:
-  result[ind] = df['Hazard']
+  result[ind] = df['Hazard'].apply(lambda x: x**2, 1)
   ind += 1
 
 submission['Hazard'] = result.mean(axis=1)
