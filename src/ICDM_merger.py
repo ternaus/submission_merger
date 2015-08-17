@@ -37,6 +37,7 @@ submission['cookie_id'] = ''
 
 for df in data:
   submission['cookie_id'] = submission['cookie_id'] + df['cookie_id'].apply(lambda x: x + ' ')
+  print submission.head()
 
 def helper(x):
   result = list(set(x.strip().split()))
