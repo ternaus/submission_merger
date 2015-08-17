@@ -36,6 +36,8 @@ submission['cookie_id'] = ''
 
 
 for df in data:
+  print 'df head'
+  print df.head()
   submission['cookie_id'] = submission['cookie_id'] + df['cookie_id'].apply(lambda x: x + ' ')
   print submission.head()
 
