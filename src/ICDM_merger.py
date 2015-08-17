@@ -24,6 +24,7 @@ data = [pd.read_csv(fName) for fName in files]
 
 for i in range(len(data)):
   data[i].sort('device_id', inplace=True)
+  print data[i].head()
 
 ids = data[0]['device_id']
 
