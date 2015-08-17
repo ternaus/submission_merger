@@ -21,6 +21,10 @@ except:
   pass
 
 data = [pd.read_csv(fName) for fName in files]
+
+for i in len(data):
+  data[i].sort('device_id', inplace=True)
+
 ids = data[0]['device_id']
 
 result = pd.DataFrame()
@@ -31,7 +35,6 @@ submission['cookie_id'] = ''
 
 
 for df in data:
-  df.sort('device_id', inplace=True)
   submission['cookie_id'] = submission['cookie_id'] + df['cookie_id'].apply(lambda x: x + ' ')
 
 def helper(x):
