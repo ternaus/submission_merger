@@ -31,6 +31,7 @@ submission['cookie_id'] = ''
 
 
 for df in data:
+  df.sort('device_id', inplace=True)
   submission['cookie_id'] = submission['cookie_id'] + df['cookie_id'].apply(lambda x: x + ' ')
 
 def helper(x):
