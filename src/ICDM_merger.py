@@ -37,7 +37,7 @@ def helper(x):
   print result
 
 submission['cookie_id'] = result.sum()
-submission['cookie_id'] = result.apply(helper, 1)
+submission['cookie_id'] = submission['cookie_id'].apply(helper, 1)
 
 submission['device_id'] = ids
 
