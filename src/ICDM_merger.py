@@ -38,11 +38,9 @@ for df in data:
   submission['cookie_id'] = submission['cookie_id'].values + map(lambda x: x + ' ', df['cookie_id'].values)
 
 
-print submission['cookie_id'][0]
-print ' '. join(set(submission['cookie_id'][0].strip().split()))
-
 def helper(x):
-  result = list(set(x.strip().split()))
+  result = set(x.strip().split())
+  result.discard('id_10')
   result = ' '.join(result)
   return result
 
