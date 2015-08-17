@@ -24,7 +24,6 @@ data = [pd.read_csv(fName) for fName in files]
 
 for i in range(len(data)):
   data[i].sort('device_id', inplace=True)
-  print data[i].head()
 
 ids = data[0]['device_id']
 
@@ -36,10 +35,11 @@ submission['cookie_id'] = ''
 
 
 for df in data:
-  print 'df head'
-  print df.head()
   submission['cookie_id'] = submission['cookie_id'].values + map(lambda x: x + ' ', df['cookie_id'].values)
-  print submission.head()
+
+
+print submission['cookie_id'][0]
+print set(submission['cookie_id'][0].strip().split())
 
 def helper(x):
   result = list(set(x.strip().split()))
