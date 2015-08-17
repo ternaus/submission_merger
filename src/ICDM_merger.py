@@ -34,7 +34,7 @@ for df in data:
 def helper(x):
   result = list(set(x.strip().split()))
   result = ' '.join(result)
-  print result
+  return result
 
 submission['cookie_id'] = result.sum()
 submission['cookie_id'] = submission['cookie_id'].apply(helper, 1)
