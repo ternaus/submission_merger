@@ -22,7 +22,7 @@ except:
 
 data = [pd.read_csv(fName) for fName in files]
 
-for i in len(data):
+for i in range(len(data)):
   data[i].sort('device_id', inplace=True)
 
 ids = data[0]['device_id']
