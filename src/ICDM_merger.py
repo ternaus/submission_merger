@@ -39,7 +39,7 @@ for df in data:
 
 
 print submission['cookie_id'][0]
-print set(submission['cookie_id'][0].strip().split())
+print ' '. join(set(submission['cookie_id'][0].strip().split()))
 
 def helper(x):
   result = list(set(x.strip().split()))
