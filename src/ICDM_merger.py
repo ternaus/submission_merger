@@ -38,7 +38,7 @@ submission['cookie_id'] = ''
 for df in data:
   print 'df head'
   print df.head()
-  submission['cookie_id'] = submission['cookie_id'] + df['cookie_id'].apply(lambda x: x + ' ')
+  submission['cookie_id'] = submission['cookie_id'].values + map(lambda x: x + ' ', df['cookie_id'].values)
   print submission.head()
 
 def helper(x):
