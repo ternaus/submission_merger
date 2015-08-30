@@ -54,7 +54,7 @@ for column in columns_names:
   submission[column] = temp.mean(axis=1).apply(math.exp)
 
 
-submission = submission.div(submission.sum(axis=1), axis=0)
+# submission = submission.div(submission.sum(axis=1), axis=0)
 
 submission['id'] = ids
 
