@@ -25,7 +25,7 @@ def inv_logit(p):
 files = sys.argv[1:]
 
 try:
-  files.remove('softmax_merger_egg.py')
+  files.remove('softmax_merger_eeg.py')
 except:
   pass
 
