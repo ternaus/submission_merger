@@ -1,7 +1,2 @@
-# submission_merger
-
-Submission merger is a tool that will help to merge different predictions for kaggle competitions.
-
-Method pf merging - softmax
-
-Supports merging regression results(Wallmart) and multiclassification (otto)
+# Scripts that help to merge submissions for different ML competitions
+ * Grupo Bimbo Inventory Demand => https://www.kaggle.com/c/grupo-bimbo-inventory-demand
